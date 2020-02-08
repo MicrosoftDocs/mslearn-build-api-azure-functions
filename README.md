@@ -1,16 +1,16 @@
 ---
 page_type: sample
 languages:
-- csharp
+- javascript
 products:
-- dotnet
-description: "Add 150 character max description"
-urlFragment: "update-this-to-unique-url-stub"
+- azure
+description: "Products Manager application for Serverless API Learn Module
+urlFragment: "mslearn-build-api-azure-functions"
 ---
 
 # Official Microsoft Sample
 
-<!-- 
+<!--
 Guidelines on README format: https://review.docs.microsoft.com/help/onboard/admin/samples/concepts/readme-template?branch=master
 
 Guidance on onboarding samples to docs.microsoft.com/samples: https://review.docs.microsoft.com/help/onboard/admin/samples/process/onboarding?branch=master
@@ -18,40 +18,43 @@ Guidance on onboarding samples to docs.microsoft.com/samples: https://review.doc
 Taxonomies for products and languages: https://review.docs.microsoft.com/new-hope/information-architecture/metadata/taxonomies?branch=master
 -->
 
-Give a short description for your sample here. What does it do and why is it important?
+This is a sample web application frontend for the Serverless API Learn Module.
 
 ## Contents
 
 Outline the file contents of the repository. It helps users navigate the codebase, build configuration and any related assets.
 
-| File/folder       | Description                                |
-|-------------------|--------------------------------------------|
-| `src`             | Sample source code.                        |
-| `.gitignore`      | Define what to ignore at commit time.      |
-| `CHANGELOG.md`    | List of changes to the sample.             |
-| `CONTRIBUTING.md` | Guidelines for contributing to the sample. |
-| `README.md`       | This README file.                          |
-| `LICENSE`         | The license for the sample.                |
+| File/folder       | Description                                                |
+| ----------------- | ---------------------------------------------------------- |
+| `frontend`        | The frontend website for the Products Manager application. |
+| `api`             | An empty folder where the user will create the API project |
+| `.gitignore`      | Define what to ignore at commit time.                      |
+| `CHANGELOG.md`    | List of changes to the sample.                             |
+| `CONTRIBUTING.md` | Guidelines for contributing to the sample.                 |
+| `README.md`       | This README file.                                          |
+| `LICENSE`         | The license for the sample.                                |
 
 ## Prerequisites
 
-Outline the required components and tools that a user might need to have on their machine in order to run the sample. This can be anything from frameworks, SDKs, OS versions or IDE releases.
+- Node.js
 
 ## Setup
 
-Explain how to prepare the sample once the user clones or downloads the repository. The section should outline every step necessary to install dependencies and set up any settings (for example, API keys and output folders).
+Switch to the "frontend" directory.
 
 ## Running the sample
 
-Outline step-by-step instructions to execute the sample and see its output. Include steps for executing the sample from the IDE, starting specific services in the Azure portal or anything related to the overall launch of the code.
+Run `npm start`.
 
 ## Key concepts
 
-Provide users with more context on the tools and services used in the sample. Explain some of the code that is being used and how services interact with each other.
+The "frontend" folder contains a single `index.html` file. This file defines the interface for the Products Manager application. It references the Bulma CSS framework, the Vue.js JavaScript framework, and a reference to the `index.js` file.
+
+The `index.js` file is a single Vue.js object which the `index.html` file needs to properly function. This `index.js` file contains all of the application logic, binding code and AJAX requests.
 
 ## Contributing
 
-This project welcomes contributions and suggestions.  Most contributions require you to agree to a
+This project welcomes contributions and suggestions. Most contributions require you to agree to a
 Contributor License Agreement (CLA) declaring that you have the right to, and actually do, grant us
 the rights to use your contribution. For details, visit https://cla.opensource.microsoft.com.
 
