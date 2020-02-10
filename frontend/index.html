@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.5/css/bulma.min.css"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+    <title>Products Manager</title>
+    <style>
+      #toast {
+        position: fixed;
+        width: 100%;
+        bottom: 0;
+        padding: 20px;
+        z-index: 99999;
+      }
+    </style>
+  </head>
+  <style></style> 
+  <body>
+    <div id="app">
+      <header>
+        <div class="container">
+          <div class="hero is-info is-bold">
+            <div class="hero-body">
+              <h1 class="is-size-1">Products</h1>
+            </div>
+          </div>
+        </div>
+      </header>
+      <section class="section">
+        <div class="container">
+          <div>
+            <button class="button is-info" @click="showModal = true">
+              + Create Product
+            </button>
+          </div>
+          <div>
+            <table class="table is-fullwidth is-striped">
+              <thead>
+                <tr>
+                  <th>Name</th>
+                  <th>Brand</th>
+                  <th>Price</th>
+                  <th>Units in Stock</th>
+                  <th></th>
+                  <th></th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr v-for="(product, index) in products" v-key="product.id">
+                  <td>
+                    <input class="input" type="text" v-model="product.name" />
+                  </td>
+                  <td>
+                    <label for="" class="label">
+                      {{ product.brand.name }}
+                    </label>
+                  </td>
+                  <td>
+                    <input
+                      class="input"
+                      type="number"
+                      v-model="product.price"
+                    />
+                  </td>
+                  <td>
+                    <input
+                      class="input"
+                      type="number"
+                      v-model="product.stockUnits"
+                    />
+                  </td>
+                  <td align="center">
+                    <button class="button" @click="updateProduct(index)">
+                      Update
+                    </button>
+                  </td>
+                  <td>
+                    <a
+                      class="delete is-large has-background-danger"
+                      @click="deleteProduct(product.id, product.brand.name, index)"
+                    ></a>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+            <div class="has-text-centered" v-show="products.length < 1">
+              <h2 class="is-size-4 has-text-info">Loading...</h2>
+            </div>
+          </div>
+          <div id="toast" v-show="toast.show" class="container" :class="['has-background-' + toast.type]">
+            <h2 class="is-size-5 has-text-white">{{ toast.message }}</h2>
+          </div>
+        </div>
+      </section>
+      <div class="modal" :class="{ 'is-active': showModal }">
+        <div class="modal-background" @click="showModal = false"></div>
+        <div class="modal-content">
+          <div class="box">
+            <h3 class="is-size-3">Create Product</h3>
+            <hr />
+            <div class="field">
+              <p class="control">
+                <input
+                  v-model="newProduct.name"
+                  class="input"
+                  type="text"
+                  placeholder="Product Name"
+                  value=""
+                />
+              </p>
+            </div>
+            <div class="field">
+              <p class="control">
+                <div class="select">
+                  <select v-model="newProduct.brand.name">
+                    <option v-for="brand in brands" v-bind:value="brand">
+                      {{ brand }}
+                    </option>
+                  </select>
+                </div>
+              </p>
+            </div>
+            <div class="field">
+              <p class="control">
+                <input type="number" class="input" placeholder="Price" v-model="newProduct.price" />
+              </p>
+            </div>
+            <div class="field">
+              <p class="control">
+                <input type="number" class="input" placeholder="Units in Stock" v-model="newProduct.stockUnits" />
+              </p>
+            </div>
+            <button class="button is-info" @click="createProduct()">Create</button>
+          </div>
+        </div>
+        <button
+          class="modal-close is-large"
+          aria-label="close"
+          @click="showModal = false"
+        ></button>
+      </div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.0/axios.min.js"></script>
+    <script src="index.js"></script>
+  </body>
+</html>
