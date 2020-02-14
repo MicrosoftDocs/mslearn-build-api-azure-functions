@@ -4,7 +4,7 @@ languages:
 - javascript
 products:
 - azure
-description: "Products Manager application for Serverless API Learn Module
+description: "Products Manager application for Serverless API Learn Module"
 urlFragment: "mslearn-build-api-azure-functions"
 ---
 
