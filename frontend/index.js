@@ -1,5 +1,5 @@
 (function() {
-  const API = "http://127.0.0.1:7071";
+  const API = "http://127.0.0.1:7071/api";
   const KEY = "";
 
   // axios defaults
