@@ -1,9 +1,9 @@
 ---
 page_type: sample
 languages:
-- javascript
+  - javascript
 products:
-- azure
+  - azure
 description: "Products Manager application for Serverless API Learn Module"
 urlFragment: "mslearn-build-api-azure-functions"
 ---
@@ -24,15 +24,15 @@ This is a sample web application frontend for the Serverless API Learn Module.
 
 Outline the file contents of the repository. It helps users navigate the codebase, build configuration and any related assets.
 
-| File/folder       | Description                                                |
-| ----------------- | ---------------------------------------------------------- |
-| `frontend`        | The frontend website for the Products Manager application. |
-| `api`             | An empty folder where the user will create the API project |
-| `.gitignore`      | Define what to ignore at commit time.                      |
-| `CHANGELOG.md`    | List of changes to the sample.                             |
-| `CONTRIBUTING.md` | Guidelines for contributing to the sample.                 |
-| `README.md`       | This README file.                                          |
-| `LICENSE`         | The license for the sample.                                |
+| File/folder       | Description                                                                   |
+| ----------------- | ----------------------------------------------------------------------------- |
+| `frontend`        | The frontend website for the Products Manager application.                    |
+| `api`             | A base Azure Functions project where the user will finish out the API project |
+| `.gitignore`      | Define what to ignore at commit time.                                         |
+| `CHANGELOG.md`    | List of changes to the sample.                                                |
+| `CONTRIBUTING.md` | Guidelines for contributing to the sample.                                    |
+| `README.md`       | This README file.                                                             |
+| `LICENSE`         | The license for the sample.                                                   |
 
 ## Prerequisites
 
