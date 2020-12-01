@@ -1,1 +1,3 @@
-API project will go in this directory. You will create it in a later exercise.
+## API
+
+This project was created with the Azure Functions Core Tools and the Azure Functions extension for VS Code.

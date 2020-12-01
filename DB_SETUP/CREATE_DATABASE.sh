@@ -4,7 +4,7 @@ accountName=tailwind-traders-$RANDOM
 databaseName=tailwind
 containerName=products
 
-# If the database already exists, an env var called ACCOUNT_NAME will be present
+# If the database already exists, an env var called API_ACCOUNT_NAME will be present
 if [ -n "$API_ACCOUNT_NAME" ]; then 
     # get the connection string from Cosmos DB
     echo "Getting connection string..."
@@ -22,7 +22,7 @@ else
     groupName=$(az group list --query "[0].name" -o tsv)
 
     echo "Creating Cosmos DB database $accountName in Resource Group $groupName..."
-    echo "This can take up to 10 minutes. Feel free to continue with the Learn Module. Just make sure to keep this terminal running."
+    echo "This can take a few minutes. Feel free to continue with the Learn Module."
     az cosmosdb create -n $accountName -g $groupName -o none
 
     echo "Creating 'tailwind' database in $accountName..."

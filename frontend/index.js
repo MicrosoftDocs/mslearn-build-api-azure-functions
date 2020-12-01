@@ -1,9 +1,5 @@
-(function() {
+(function () {
   const API = "http://127.0.0.1:7071/api";
-  const KEY = "";
-
-  // axios defaults
-  axios.defaults.headers.common["x-functions-key"] = KEY;
 
   new Vue({
     el: "#app",
@@ -25,10 +21,10 @@
       getProducts() {
         this.products = axios
           .get(`${API}/products`)
-          .then(response => {
+          .then((response) => {
             this.products = response.data;
           })
-          .catch(err => {
+          .catch((err) => {
             this.showError("Get", err.message);
           });
       },
@@ -38,18 +34,18 @@
           .then(() => {
             this.showSuccess("Item updated");
           })
-          .catch(err => {
+          .catch((err) => {
             this.showError("Update", err.message);
           });
       },
       createProduct() {
         axios
           .post(`${API}/product`, this.newProduct)
-          .then(item => {
+          .then((item) => {
             this.products.push(item.data);
             this.showSuccess("Item created");
           })
-          .catch(err => {
+          .catch((err) => {
             this.showError("Create", err.message);
           })
           .finally(() => {
@@ -70,7 +66,7 @@
             this.products.splice(index, 1);
             this.showSuccess("Item deleted");
           })
-          .catch(err => {
+          .catch((err) => {
             this.showError("Delete", err.message);
           });
       },
