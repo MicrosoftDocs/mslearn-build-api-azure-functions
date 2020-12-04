@@ -2,7 +2,7 @@ databaseName=tailwind
 containerName=products
 
 # Get the connection string
-echo "Getting connection string..."
+echo "Getting connection string. This might take up to one minute as we prepare the database..."
 
 # Get the account name, which is randomized
 accountName=$(az cosmosdb list --query "[0].name" -o tsv)
@@ -17,9 +17,10 @@ az cosmosdb sql database create -a $accountName -g $groupName -n $databaseName -
 az cosmosdb sql container create -g $groupName -a $accountName -d $databaseName -n $containerName -p /brand/name -o none
 
 endpoint=https://$accountName.documents.azure.com:443
-key=$(az cosmosdb list-keys -g $groupName -n $accountName --query "primaryMasterKey" -o json)
+key=$(az cosmosdb keys list -g $groupName -n $accountName --type keys --query "primaryMasterKey" -o json)
 
-npm i --silent
+## silent npm install
+npm install > "/dev/null" 2>&1
 
 node ./POPULATE_DATABASE.js --endpoint $endpoint --key $key --databaseName $databaseName --containerName $containerName
 
