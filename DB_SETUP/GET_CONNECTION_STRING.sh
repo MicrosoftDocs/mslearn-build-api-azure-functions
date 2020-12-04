@@ -2,7 +2,7 @@ databaseName=tailwind
 containerName=products
 
 # Get the connection string
-echo "Getting connection string. This might take up to one minute as we prepare the database..."
+echo "Getting connection string. This might take up to two minutes as we prepare the database..."
 
 # Get the account name, which is randomized
 accountName=$(az cosmosdb list --query "[0].name" -o tsv)
