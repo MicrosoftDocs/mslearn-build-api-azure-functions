@@ -1,17 +1,19 @@
 (function () {
   const API = "http://127.0.0.1:7071/api";
 
-  new Vue({
+  const app = Vue.createApp({
     el: "#app",
-    data: {
-      showModal: false,
-      products: [],
-      brands: ["Home & Pro tools", "Drills Co", "ProSaws", "ElctroDrill"],
-      newProduct: { name: "", price: null, stockUnits: null, brand: {} },
-      toast: {
-        type: "danger",
-        message: null,
-        show: false
+    data() {
+      return {
+        showModal: false,
+        products: [],
+        brands: ["Home & Pro tools", "Drills Co", "ProSaws", "ElctroDrill"],
+        newProduct: { name: "", price: null, stockUnits: null, brand: {} },
+        toast: {
+          type: "danger",
+          message: null,
+          show: false
+        }
       }
     },
     mounted() {
@@ -86,4 +88,5 @@
       }
     }
   });
+  app.mount("#app")
 })();

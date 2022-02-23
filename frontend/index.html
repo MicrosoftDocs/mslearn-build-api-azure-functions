@@ -8,7 +8,7 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.5/css/bulma.min.css"
     />
-    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue@3"></script>
     <title>Products Manager</title>
     <style>
       #toast {
@@ -52,7 +52,7 @@
                 </tr>
               </thead>
               <tbody>
-                <tr v-for="(product, index) in products" v-key="product.id">
+                <tr v-for="(product, index) in products" :key="product.id">
                   <td>
                     <input class="input" type="text" v-model="product.name" />
                   </td>
@@ -111,7 +111,6 @@
                   class="input"
                   type="text"
                   placeholder="Product Name"
-                  value=""
                 />
               </p>
             </div>
