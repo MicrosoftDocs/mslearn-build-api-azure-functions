@@ -6,5 +6,8 @@
     {
       "path": "api"
     }
-  ]
+  ],
+  "settings": {
+    "debug.internalConsoleOptions": "neverOpen"
+  }
 }
