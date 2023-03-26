@@ -19,6 +19,6 @@
   "homepage": "https://github.com/burkeholland/tailwind-products#readme",
   "dependencies": {
     "@azure/cosmos": "^3.5.2",
-    "yargs": "15.1.0"
+    "yargs": "15.4.1"
   }
 }
