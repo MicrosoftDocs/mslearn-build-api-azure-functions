@@ -21,7 +21,8 @@ export async function CreateProduct(request: HttpRequest, context: InvocationCon
     }
 };
 
-app.post('CreateProduct', {
+app.http('CreateProduct', {
+    methods: ['POST'],
     route: 'product',
     handler: CreateProduct
 });

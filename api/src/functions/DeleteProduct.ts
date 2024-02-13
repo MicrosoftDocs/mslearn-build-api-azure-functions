@@ -35,7 +35,8 @@ export async function DeleteProduct(request: HttpRequest, context: InvocationCon
     }
 };
 
-app.deleteRequest('DeleteProduct', {
+app.http('DeleteProduct', {
+    methods: ['DELETE'],
     route: 'product/{id}',
     handler: DeleteProduct
 });
