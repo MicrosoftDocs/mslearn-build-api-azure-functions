@@ -25,13 +25,14 @@ const productService = {
   async update(product) {
     const { resource } = await this.container.item(
       product.id,
-      product.brand.name,
+      product.id,
     )
       .replace(product);
     return resource;
   },
-  async delete(id, brandName) {
-    const result = await this.container.item(id, brandName).delete();
+  async delete(id: string) {
+    const result = await this.container.item(id, id).delete();
+    return result;
   },
 };
 
