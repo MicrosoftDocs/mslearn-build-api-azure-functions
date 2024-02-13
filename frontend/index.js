@@ -52,15 +52,9 @@
             this.showModal = false;
           });
       },
-      deleteProduct(id, brandName, index) {
+      deleteProduct(id, index) {
         axios
-          .delete(`${API}/product/${id}`, {
-            data: {
-              brand: {
-                name: brandName
-              }
-            }
-          })
+          .delete(`${API}/product/${id}`)
           .then(() => {
             // use the index to remove from the products array
             this.products.splice(index, 1);
