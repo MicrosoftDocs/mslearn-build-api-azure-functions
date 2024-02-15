@@ -1,22 +1,30 @@
 import { HttpRequest, HttpResponseInit, InvocationContext } from "@azure/functions";
-import productsService from "../services/product.services";
+import productService from "../services/product.services";
 
 export async function CreateProduct(request: HttpRequest, context: InvocationContext): Promise<HttpResponseInit> {
-    context.log(`Http function processed request for url "${request.url}"`);
-    let response: any;
+   context.log(`Http function processed request for url "${request.url}"`);
+
    try{
+        // parse request body to extract product data
         const product = await request.json();
-        response = await productsService.create(product);
-        context.log(product)
+
+         // Create the product using the productService
+        const createdProduct = await productService.create(product);
 
         return {
-            status: 200,
-            jsonBody: response,
+            status: 201,
+            jsonBody: createdProduct
         };
-    } catch (error) {
+
+    } catch (error: unknown) {
+        const err = error as Error;
+        context.error(`Error creating product: ${err.message}`);
+
         return {
             status: 500,
-            body: error.message,
+            jsonBody: {
+                error: "Failed to create product",
+            }
         };
     }
 };
