@@ -1,5 +1,5 @@
-import { app, HttpRequest, HttpResponseInit, InvocationContext } from "@azure/functions";
-import productsService from "../../services/productsService";
+import { HttpRequest, HttpResponseInit, InvocationContext } from "@azure/functions";
+import productsService from "../services/product.services";
 
 export async function UpdateProduct(request: HttpRequest, context: InvocationContext): Promise<HttpResponseInit> {
     context.log(`Http function processed request for url "${request.url}"`);
@@ -21,8 +21,4 @@ export async function UpdateProduct(request: HttpRequest, context: InvocationCon
     }  
 };
 
-app.http('UpdateProduct', {
-    methods: ['PUT'],
-    route: 'product',
-    handler: UpdateProduct
-});
+
