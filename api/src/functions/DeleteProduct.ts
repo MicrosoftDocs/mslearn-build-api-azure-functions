@@ -1,22 +1,33 @@
 import { HttpRequest, HttpResponseInit, InvocationContext } from "@azure/functions";
-import productsService from "../services/product.services";
+import productService from "../services/product.services";
 
 export async function DeleteProduct(request: HttpRequest, context: InvocationContext): Promise<HttpResponseInit> {
     context.log(`Http function processed request for url "${request.url}"`);
-    let response: any;
 
     try {
+        // Extract product id and brand name from the request
         const id: string = request.params.id;
-        response = await productsService.delete(id);
+        const body = await request.json();
+        const brand = JSON.stringify(body);
+        const brandName = JSON.parse(brand).brand.name;
+
+        // Delete the product using the productService
+        const deletedProduct = await productService.delete(id, brandName);
 
         return {
             status: 200,
-            body: response,
+            body: deletedProduct
         };
-    } catch (error) {
+        
+    } catch (error: unknown) {
+        const err = error as Error;
+        context.error(`Error deleting product: ${err.message}`);
+
         return {
             status: 500,
-            body: error.message,
+            jsonBody: {
+                error: "Failed to delete product",
+            },
         };
     }
 };
