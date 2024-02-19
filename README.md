@@ -18,7 +18,7 @@ Guidance on onboarding samples to docs.microsoft.com/samples: https://review.doc
 Taxonomies for products and languages: https://review.docs.microsoft.com/new-hope/information-architecture/metadata/taxonomies?branch=master
 -->
 
-This is a sample web application frontend for the Serverless API Learn Module.
+This is a sample web application frontend for the [Build Serverless APIs with Azure Functions](https://learn.microsoft.com/en-us/training/modules/build-api-azure-functions/) Learn Module.
 
 [![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/MicrosoftDocs/mslearn-build-api-azure-functions)
 
@@ -41,8 +41,8 @@ Outline the file contents of the repository. It helps users navigate the codebas
 
 ## Prerequisites
 
-- Node.js
-- Azure  Functions Core Tools
+- [Node.js](https://nodejs.org/en/)
+- [Azure  Functions Core Tools](https://github.com/Azure/azure-functions-core-tools)
 
 ## Setup
 
