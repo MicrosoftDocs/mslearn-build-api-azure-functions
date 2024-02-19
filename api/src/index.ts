@@ -7,7 +7,7 @@ app.http('CreateProduct',{
     methods: ['GET', 'POST'],
     authLevel: 'anonymous',
     handler: CreateProduct
-})
+});
 
 app.http('DeleteProduct', {
     methods: ['GET', 'POST'],
