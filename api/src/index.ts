@@ -13,14 +13,14 @@ app.http('CreateProduct',{
 
 app.http('DeleteProduct', {
     methods: ['DELETE'],
-    route: 'products/:id',
+    route: 'vacations/{id}',
     authLevel: 'anonymous',
     handler: DeleteProduct
 });
 
 app.http('UpdateProduct', {
     methods: ['PUT'],
-    route: 'products/:id',
+    route: 'vacations/{id}',
     authLevel: 'anonymous',
     handler: UpdateProduct
 });
