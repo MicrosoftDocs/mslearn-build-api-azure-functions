@@ -30,7 +30,7 @@
       },
       updateProduct(index) {
         axios
-          .put(`${API}/product`, this.products[index])
+          .put(`${API}/products`, this.products[index])
           .then(() => {
             this.showSuccess("Item updated");
           })
@@ -40,7 +40,7 @@
       },
       createProduct() {
         axios
-          .post(`${API}/product`, this.newProduct)
+          .post(`${API}/products`, this.newProduct)
           .then((item) => {
             this.products.push(item.data);
             this.showSuccess("Item created");
@@ -54,7 +54,7 @@
       },
       deleteProduct(id, brandName, index) {
         axios
-          .delete(`${API}/product/${id}`, {
+          .delete(`${API}/products/${id}`, {
             data: {
               brand: {
                 name: brandName
