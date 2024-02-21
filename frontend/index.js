@@ -22,7 +22,7 @@
         this.products = axios
           .get(`${API}/products`)
           .then((response) => {
-            this.products = response.data;
+            this.products = response.data.products;
           })
           .catch((err) => {
             this.showError("Get", err.message);
