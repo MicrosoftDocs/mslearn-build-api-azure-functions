@@ -13,20 +13,15 @@ const productService = {
       console.log(err.message);
     }
   },
-
   async create(productToCreate) {
     const { resource } = await this.container.items.create(productToCreate);
-
     return resource;
   },
-
   async read(): Promise<string> {
     const iterator = this.container.items.readAll();
     const { resources } = await iterator.fetchAll();
-
     return resources;
   },
-
   async update(product) {
     const { resource } = await this.container.item(
       product.id,
@@ -35,11 +30,9 @@ const productService = {
       .replace(product);
     return resource;
   },
-
-  async delete(id: string, brandName) {
+  async delete(id: string, brandName){
     const result = await this.container.item(id, brandName).delete();
-
-    return result;
+    return;
   },
 };
 
