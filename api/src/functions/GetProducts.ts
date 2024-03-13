@@ -20,7 +20,7 @@ export async function GetProducts(request: HttpRequest, context: InvocationConte
     return {
       status: 500,
       jsonBody: {
-        error: "Failed to listing products",
+        error: "Failed to list products",
       },
     };
   }
