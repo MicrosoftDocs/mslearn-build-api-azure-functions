@@ -7,16 +7,18 @@ export async function DeleteProduct(request: HttpRequest, context: InvocationCon
     try {
         // Extract product id and brand name from the request
         const id: string = request.params.id;
-        const body = await request.json();
-        const brand = JSON.stringify(body);
-        const brandName = JSON.parse(brand).brand.name;
+
+        const body: any = await request.json();
+        const brandName = body.brand.name;
 
         // Delete the product using the productService
         const deletedProduct = await productService.delete(id, brandName);
 
         return {
             status: 200,
-            body: deletedProduct
+            jsonBody: {
+                deletedProduct,
+            }
         };
         
     } catch (error: unknown) {
