@@ -16,7 +16,9 @@ export async function DeleteProduct(request: HttpRequest, context: InvocationCon
 
         return {
             status: 200,
-            body: deletedProduct
+            jsonBody: {
+                deletedProduct
+            },
         };
         
     } catch (error: unknown) {
