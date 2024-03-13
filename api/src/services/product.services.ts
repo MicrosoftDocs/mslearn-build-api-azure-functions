@@ -30,8 +30,9 @@ const productService = {
       .replace(product);
     return resource;
   },
-  async delete(id, brandName) {
+  async delete(id: string, brandName) {
     const result = await this.container.item(id, brandName).delete();
+    return result;
   },
 };
 
