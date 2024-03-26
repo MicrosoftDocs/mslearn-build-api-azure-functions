@@ -1,0 +1,24 @@
+{
+  "name": "api",
+  "version": "1.0.0",
+  "description": "",
+  "scripts": {
+    "build": "tsc",
+    "watch": "tsc -w",
+    "clean": "rimraf dist",
+    "start:host": "npm run prestart && func start",
+    "start": "npm-run-all --parallel start:host watch",
+    "prestart": "npm run clean && npm run build"
+  },
+  "dependencies": {
+    "@azure/cosmos": "^4.0.0",
+    "@azure/functions": "^4.0.0",
+    "npm-run-all": "^4.1.5"
+  },
+  "devDependencies": {
+    "@types/node": "^18.x",
+    "rimraf": "^5.0.5",
+    "typescript": "^4.0.0"
+  },
+  "main": "dist/src/index.js"
+}
