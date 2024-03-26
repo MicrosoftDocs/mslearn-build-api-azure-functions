@@ -17,7 +17,7 @@ export async function UpdateProduct(request: HttpRequest, context: InvocationCon
                 udpatedProduct
             }
         };
-        
+
     } catch (error: unknown) {
         const err = error as Error;
         context.error(`Error updating product: ${err.message}`);
@@ -28,7 +28,5 @@ export async function UpdateProduct(request: HttpRequest, context: InvocationCon
                 error: "Failed to update product",
             }
         };
-    }  
+    }
 };
-
-

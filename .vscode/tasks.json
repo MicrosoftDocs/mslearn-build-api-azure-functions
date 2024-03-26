@@ -16,7 +16,7 @@
 			"type": "shell",
 			"label": "npm build (functions)",
 			"command": "npm run build",
-			"dependsOn": "npm install (functions)",
+			"dependsOn": "npm clean (functions)",
 			"problemMatcher": "$tsc",
 			"options": {
 				"cwd": "${workspaceFolder}/api"
@@ -36,6 +36,15 @@
 			"command": "npm prune --production",
 			"dependsOn": "npm build (functions)",
 			"problemMatcher": [],
+			"options": {
+				"cwd": "${workspaceFolder}/api"
+			}
+		},
+		{
+			"type": "shell",
+			"label": "npm clean (functions)",
+			"command": "npm run clean",
+			"dependsOn": "npm install (functions)",
 			"options": {
 				"cwd": "${workspaceFolder}/api"
 			}
